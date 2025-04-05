@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://ctbb1v0pan0bs"]
+
+[ext_resource type="Script" uid="uid://cj6s46xeu814g" path="res://Player/player_nad_lab.gd" id="1_l8h54"]
+[ext_resource type="PackedScene" uid="uid://bw5wba44f14hb" path="res://Player/ray_checker.tscn" id="2_4ntmi"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_l8h54"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_l8h54"]
+size = Vector3(1, 1, 0.25)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4ntmi"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_btcbx"]
+radius = 0.6
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("camera", "ray_checker", "forward_marker")]
+script = ExtResource("1_l8h54")
+camera = NodePath("Camera3D")
+ray_checker = NodePath("RayChecker")
+forward_marker = NodePath("")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("SphereMesh_l8h54")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 0.709297, -0.513779)
+mesh = SubResource("PrismMesh_l8h54")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("SphereShape3D_4ntmi")
+
+[node name="RayChecker" parent="." instance=ExtResource("2_4ntmi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="AttachChecker" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AttachChecker"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("SphereShape3D_btcbx")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[connection signal="body_entered" from="AttachChecker" to="." method="_on_attach_checker_body_entered"]

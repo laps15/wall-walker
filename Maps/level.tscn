@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://drupthxuij77r"]
+
+[ext_resource type="PackedScene" uid="uid://dwbqn571ldiok" path="res://Maps/Resources/floor.gltf" id="1_8m33b"]
+[ext_resource type="PackedScene" uid="uid://oku02b6npv0h" path="res://Maps/Resources/box.gltf" id="2_obos6"]
+
+[node name="Level" type="Node3D"]
+
+[node name="floor" parent="." instance=ExtResource("1_8m33b")]
+
+[node name="box" parent="floor" instance=ExtResource("2_obos6")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 8, 0, 5, 20)
+
+[node name="box2" parent="floor" instance=ExtResource("2_obos6")]
+
+[node name="box3" parent="floor" instance=ExtResource("2_obos6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 20)
+
+[node name="box4" parent="floor" instance=ExtResource("2_obos6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40)
