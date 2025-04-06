@@ -13,18 +13,19 @@ size = Vector3(1, 1, 0.25)
 [sub_resource type="SphereShape3D" id="SphereShape3D_btcbx"]
 radius = 0.6
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("camera", "ray_checker", "forward_marker")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("camera", "ray_checker", "forward_marker", "body")]
 script = ExtResource("1_l8h54")
 camera = NodePath("Camera3D")
 ray_checker = NodePath("RayChecker")
-forward_marker = NodePath("")
+forward_marker = NodePath("Marker3D")
+body = NodePath("MeshInstance3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 mesh = SubResource("SphereMesh_l8h54")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 0.709297, -0.513779)
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 0.158111, -0.513779)
 mesh = SubResource("PrismMesh_l8h54")
 skeleton = NodePath("../..")
 
@@ -42,6 +43,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("SphereShape3D_btcbx")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 3)
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
 [connection signal="body_entered" from="AttachChecker" to="." method="_on_attach_checker_body_entered"]
