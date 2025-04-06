@@ -8,12 +8,16 @@
 [node name="floor" parent="." instance=ExtResource("1_8m33b")]
 
 [node name="box" parent="floor" instance=ExtResource("2_obos6")]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 8, 0, 5, 20)
+transform = Transform3D(-1, 0, -6.99382e-07, 0, 0.5, 0, 8.74228e-08, 0, -8, 0.0531576, 5, -22)
 
 [node name="box2" parent="floor" instance=ExtResource("2_obos6")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0531593, 0, -2)
 
 [node name="box3" parent="floor" instance=ExtResource("2_obos6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 20)
 
 [node name="box4" parent="floor" instance=ExtResource("2_obos6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0531558, 0, -42)
+
+[node name="box" parent="." instance=ExtResource("2_obos6")]
+transform = Transform3D(-1, 6.18173e-08, -6.18173e-08, 0, 0.707107, 0.707107, 8.74228e-08, 0.707107, -0.707107, 0.159475, -2, -2)
