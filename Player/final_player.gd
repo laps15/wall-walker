@@ -120,6 +120,4 @@ func _process_input(input_dir: Vector2, delta: float) -> void:
 	self.orientation.origin = Vector3()
 	self.orientation = self.orientation.orthonormalized()
 	self.model.global_transform.basis = self.orientation.basis
-	self.model.rotation.y
-	print("Y: ", self.model.rotation_degrees.y)
 	
