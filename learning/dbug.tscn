@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1xhtor3mbfcn"]
+
+[ext_resource type="PackedScene" uid="uid://oku02b6npv0h" path="res://Maps/Resources/box.gltf" id="1_3dmjp"]
+[ext_resource type="PackedScene" uid="uid://cu056d18mr1r5" path="res://learning/vector.tscn" id="2_gnrt6"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_8r18m"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_fv0fe"]
+size = Vector3(1, 1, 0.25)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+visible = false
+mesh = SubResource("SphereMesh_8r18m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 0.158111, -0.513779)
+mesh = SubResource("PrismMesh_fv0fe")
+skeleton = NodePath("../..")
+
+[node name="Marker3D" type="Marker3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -2)
+
+[node name="box" parent="." instance=ExtResource("1_3dmjp")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, -1.26025)
+visible = false
+
+[node name="Cross" parent="." instance=ExtResource("2_gnrt6")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, -7.10543e-15, 1, -0.00846314, 0, 0)
+
+[node name="Normal" parent="." instance=ExtResource("2_gnrt6")]
+transform = Transform3D(-1.81058e-08, -1, 6.18172e-08, 0.707107, -5.65142e-08, -0.707107, 0.707107, 3.09086e-08, 0.707107, -0.00846314, 0, 0)
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="Input" parent="." instance=ExtResource("2_gnrt6")]
+transform = Transform3D(-8.74228e-08, 1, 4.37114e-08, 1.06581e-14, -4.37114e-08, 1, 1, 8.74228e-08, -8.74741e-15, -0.00846314, 0, 0)

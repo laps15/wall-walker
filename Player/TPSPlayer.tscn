@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkid4kyod40n"]
+
+[ext_resource type="Script" uid="uid://qaqu0wxisim2" path="res://Player/tps_player.gd" id="1_t3xtm"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_dd7jx"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_t3xtm"]
+size = Vector3(1, 1, 0.25)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_p7qrw"]
+
+[node name="TpsPlayer" type="CharacterBody3D" node_paths=PackedStringArray("camera", "model")]
+script = ExtResource("1_t3xtm")
+camera = NodePath("Camera3D")
+model = NodePath("MeshInstance3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("SphereMesh_dd7jx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 0.158111, -0.513779)
+mesh = SubResource("PrismMesh_t3xtm")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("SphereShape3D_p7qrw")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 1.5, 3)

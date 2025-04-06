@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cu056d18mr1r5"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_jtvxk"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jtvxk"]
+top_radius = 0.0
+bottom_radius = 0.05
+height = 0.1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_kux8c"]
+top_radius = 0.03
+bottom_radius = 0.03
+height = 0.5
+
+[node name="Vector" type="MeshInstance3D"]
+mesh = SubResource("ArrayMesh_jtvxk")
+
+[node name="Point" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+mesh = SubResource("CylinderMesh_jtvxk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+mesh = SubResource("CylinderMesh_kux8c")
