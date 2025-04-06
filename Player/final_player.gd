@@ -87,7 +87,10 @@ func _process_input(input_dir: Vector2, delta: float) -> void:
 		self.up_direction = Vector3.UP
 		self.gravity = Vector3.DOWN * self.GRAVITY_SPEED
 
-	var player_look_at = camera_x * self.motion.x + camera_z * self.motion.y 
+	var player_look_at = camera_x * self.motion.x + camera_z * self.motion.y
+	
+	if self.model.rotation.y < -PI/2 or self.model.rotation.y > PI/2:
+		player_look_at.y = -player_look_at.y
 	
 	if player_look_at.length() > 0.001:
 		var q_from = orientation.basis.get_rotation_quaternion()
@@ -117,4 +120,6 @@ func _process_input(input_dir: Vector2, delta: float) -> void:
 	self.orientation.origin = Vector3()
 	self.orientation = self.orientation.orthonormalized()
 	self.model.global_transform.basis = self.orientation.basis
+	self.model.rotation.y
+	print("Y: ", self.model.rotation_degrees.y)
 	
