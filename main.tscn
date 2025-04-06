@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dgm27fnnigekx" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://drupthxuij77r" path="res://Maps/level.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://ctbb1v0pan0bs" path="res://Player/player.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://butod31sihb3d" path="res://Player/FinalPlayer.tscn" id="3_h2yge"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_h2yge")
@@ -12,5 +12,5 @@ script = ExtResource("1_h2yge")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.353553, 0.866025, 0.353553, 0.612372, -0.5, 0.612372, 0.707107, 0, -0.707107, -24, 20, -23)
 
-[node name="Player" parent="." instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.8845)
+[node name="Player" parent="." instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.2472)
